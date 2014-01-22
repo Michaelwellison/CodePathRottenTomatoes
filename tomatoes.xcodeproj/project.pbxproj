@@ -14,13 +14,15 @@
 		D57C8049188797D00040AA5B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D57C8048188797D00040AA5B /* main.m */; };
 		D57C804D188797D00040AA5B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D57C804C188797D00040AA5B /* AppDelegate.m */; };
 		D57C8050188797D00040AA5B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D57C804E188797D00040AA5B /* Main.storyboard */; };
-		D57C8053188797D00040AA5B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D57C8052188797D00040AA5B /* ViewController.m */; };
 		D57C8055188797D00040AA5B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D57C8054188797D00040AA5B /* Images.xcassets */; };
 		D57C805C188797D00040AA5B /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D57C805B188797D00040AA5B /* XCTest.framework */; };
 		D57C805D188797D00040AA5B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D57C803C188797D00040AA5B /* Foundation.framework */; };
 		D57C805E188797D00040AA5B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D57C8040188797D00040AA5B /* UIKit.framework */; };
 		D57C8066188797D00040AA5B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D57C8064188797D00040AA5B /* InfoPlist.strings */; };
 		D57C8068188797D00040AA5B /* tomatoesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D57C8067188797D00040AA5B /* tomatoesTests.m */; };
+		D57C80731887992F0040AA5B /* MoviesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D57C80721887992F0040AA5B /* MoviesViewController.m */; };
+		D58DBB77188DE17200F0A5BF /* MovieCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D58DBB76188DE17200F0A5BF /* MovieCell.m */; };
+		D58DBB7A188DE8AF00F0A5BF /* Movie.m in Sources */ = {isa = PBXBuildFile; fileRef = D58DBB79188DE8AF00F0A5BF /* Movie.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,14 +47,18 @@
 		D57C804B188797D00040AA5B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D57C804C188797D00040AA5B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		D57C804F188797D00040AA5B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		D57C8051188797D00040AA5B /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		D57C8052188797D00040AA5B /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		D57C8054188797D00040AA5B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		D57C805A188797D00040AA5B /* tomatoesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tomatoesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D57C805B188797D00040AA5B /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		D57C8063188797D00040AA5B /* tomatoesTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "tomatoesTests-Info.plist"; sourceTree = "<group>"; };
 		D57C8065188797D00040AA5B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D57C8067188797D00040AA5B /* tomatoesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = tomatoesTests.m; sourceTree = "<group>"; };
+		D57C80711887992F0040AA5B /* MoviesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoviesViewController.h; sourceTree = "<group>"; };
+		D57C80721887992F0040AA5B /* MoviesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoviesViewController.m; sourceTree = "<group>"; };
+		D58DBB75188DE17200F0A5BF /* MovieCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieCell.h; sourceTree = "<group>"; };
+		D58DBB76188DE17200F0A5BF /* MovieCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieCell.m; sourceTree = "<group>"; };
+		D58DBB78188DE8AF00F0A5BF /* Movie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Movie.h; sourceTree = "<group>"; };
+		D58DBB79188DE8AF00F0A5BF /* Movie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Movie.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,10 +121,14 @@
 				D57C804B188797D00040AA5B /* AppDelegate.h */,
 				D57C804C188797D00040AA5B /* AppDelegate.m */,
 				D57C804E188797D00040AA5B /* Main.storyboard */,
-				D57C8051188797D00040AA5B /* ViewController.h */,
-				D57C8052188797D00040AA5B /* ViewController.m */,
 				D57C8054188797D00040AA5B /* Images.xcassets */,
 				D57C8043188797D00040AA5B /* Supporting Files */,
+				D57C80711887992F0040AA5B /* MoviesViewController.h */,
+				D57C80721887992F0040AA5B /* MoviesViewController.m */,
+				D58DBB75188DE17200F0A5BF /* MovieCell.h */,
+				D58DBB76188DE17200F0A5BF /* MovieCell.m */,
+				D58DBB78188DE8AF00F0A5BF /* Movie.h */,
+				D58DBB79188DE8AF00F0A5BF /* Movie.m */,
 			);
 			path = tomatoes;
 			sourceTree = "<group>";
@@ -249,9 +259,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D57C8053188797D00040AA5B /* ViewController.m in Sources */,
 				D57C804D188797D00040AA5B /* AppDelegate.m in Sources */,
 				D57C8049188797D00040AA5B /* main.m in Sources */,
+				D58DBB7A188DE8AF00F0A5BF /* Movie.m in Sources */,
+				D58DBB77188DE17200F0A5BF /* MovieCell.m in Sources */,
+				D57C80731887992F0040AA5B /* MoviesViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -460,6 +472,7 @@
 				D57C806D188797D00040AA5B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D57C806E188797D00040AA5B /* Build configuration list for PBXNativeTarget "tomatoesTests" */ = {
 			isa = XCConfigurationList;
@@ -468,6 +481,7 @@
 				D57C8070188797D00040AA5B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
