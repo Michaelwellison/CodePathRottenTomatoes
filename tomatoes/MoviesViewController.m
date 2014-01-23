@@ -9,6 +9,8 @@
 #import "MoviesViewController.h"
 #import "MovieCell.h"
 #import "Movie.h"
+#import "UIImageView+AFNetworking.h"
+#import "MovieDetailViewController.h"
 
 @interface MoviesViewController ()
 
@@ -35,12 +37,14 @@
         [self reload];
     }
     return self;
+
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    self.title = @"Movies";
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -65,7 +69,9 @@
     cell.movieTitleLabel.text = movie.title;
     cell.synopsisLabel.text = movie.synopsis;
     cell.castLabel.text = movie.cast;
+    [cell.posterImage setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", movie.posters]]];
     
+
     return cell;
 }
 
@@ -87,6 +93,18 @@
         NSLog(@"movies: %@", self.movies);
         
     }];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    NSLog(@"this works");
+    
+    UITableViewCell *selectedCell = (UITableViewCell *)sender;
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:selectedCell];
+    NSDictionary *movies = self.movies[indexPath.row];
+    Movie *movie = [[Movie alloc] initWithDictionary:movies];
+    
+    MovieDetailViewController *movieDetailViewController = (MovieDetailViewController *)segue.destinationViewController;
+    [movieDetailViewController setMovieDetails:movie];
 }
 
 @end

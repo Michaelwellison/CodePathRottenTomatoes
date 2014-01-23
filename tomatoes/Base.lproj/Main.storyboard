@@ -22,7 +22,7 @@
             </objects>
             <point key="canvasLocation" x="489" y="112"/>
         </scene>
-        <!--Movies View Controller-->
+        <!--Movies View Controller - Title-->
         <scene sceneID="jI4-RX-qun">
             <objects>
                 <tableViewController id="9wM-fZ-2UL" customClass="MoviesViewController" sceneMemberID="viewController">
@@ -31,19 +31,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MovieCell" rowHeight="111" id="taB-kR-mwZ" customClass="MovieCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MovieCell" rowHeight="111" id="taB-kR-mwZ" customClass="MovieCell">
                                 <rect key="frame" x="0.0" y="86" width="320" height="111"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="taB-kR-mwZ" id="WIL-LJ-JaM">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="110"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="110"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jwl-1m-UDb">
-                                            <rect key="frame" x="11" y="0.0" width="84" height="110"/>
+                                            <rect key="frame" x="11" y="6" width="84" height="96"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         </imageView>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Percy Jackson" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dRe-Y9-MKY">
-                                            <rect key="frame" x="103" y="0.0" width="197" height="21"/>
+                                            <rect key="frame" x="103" y="6" width="197" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -67,7 +67,9 @@
                                 <connections>
                                     <outlet property="castLabel" destination="MjX-0C-Roo" id="B5Z-dq-mwL"/>
                                     <outlet property="movieTitleLabel" destination="dRe-Y9-MKY" id="VF0-jq-ved"/>
+                                    <outlet property="posterImage" destination="jwl-1m-UDb" id="fSR-UK-kAo"/>
                                     <outlet property="synopsisLabel" destination="bJd-yq-tLa" id="n7p-ZK-Cgz"/>
+                                    <segue destination="3pe-by-z8e" kind="push" id="l1e-Qc-Nj3"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -76,11 +78,66 @@
                             <outlet property="delegate" destination="9wM-fZ-2UL" id="qhC-kO-0QB"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="Evy-VZ-iY5"/>
+                    <navigationItem key="navigationItem" title="Title" id="Tbp-tJ-5AM"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cw7-kC-YgE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="964" y="109"/>
+        </scene>
+        <!--Movie Detail View Controller-->
+        <scene sceneID="IVe-VN-UCy">
+            <objects>
+                <viewController id="3pe-by-z8e" customClass="MovieDetailViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="mpg-xg-z0C"/>
+                        <viewControllerLayoutGuide type="bottom" id="EpJ-Fu-UH5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="GBX-LJ-w2L">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="x2r-FM-dxP">
+                                <rect key="frame" x="0.0" y="64" width="320" height="294"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Summary" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a2B-cl-UX1">
+                                <rect key="frame" x="20" y="372" width="101" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Cast" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H2q-nu-G41">
+                                <rect key="frame" x="20" y="502" width="65" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="290" translatesAutoresizingMaskIntoConstraints="NO" id="nWa-b7-mdf">
+                                <rect key="frame" x="20" y="392" width="290" height="112"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <string key="text">Percy Jackson, the son of Poseidon, continues his epic journey to fulfill his destiny, as he teams with his demigod friends to retrieve the Golden Fleece, which has the power to save their home and training ground, Camp Half-Blood.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Logan Lerman, Alexandra Daddario, Brandon T. Jackson" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="2ld-sW-ifu">
+                                <rect key="frame" x="20" y="522" width="280" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="h6I-id-Cce"/>
+                    <connections>
+                        <outlet property="castDetailLabel" destination="2ld-sW-ifu" id="78p-zZ-hNE"/>
+                        <outlet property="movieDetailImage" destination="x2r-FM-dxP" id="eKq-fX-W4P"/>
+                        <outlet property="synopsisDetailLabel" destination="nWa-b7-mdf" id="cxa-JY-WjE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Fy-oH-HcA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1430" y="112"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

@@ -16,6 +16,7 @@
         self.title = dictionary[@"title"];
         self.synopsis = dictionary[@"synopsis"];
         self.cast = [[dictionary[@"abridged_cast"] valueForKey:@"name"] componentsJoinedByString:@""];
+        self.posters = [dictionary[@"posters"] valueForKey:@"original"];
     }
     
     return self;

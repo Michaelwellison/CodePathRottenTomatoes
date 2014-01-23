@@ -13,7 +13,7 @@
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic, strong) NSString *synopsis;
 @property (nonatomic, strong) NSString *cast;
-@property (nonatomic, strong) UIImage *poster;
+@property (nonatomic, strong) UIImage *posters;
 
 - (id)initWithDictionary:(NSDictionary *)dictionary;
 
