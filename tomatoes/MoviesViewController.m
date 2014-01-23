@@ -44,6 +44,23 @@
 {
     [super viewDidLoad];
     self.title = @"Movies";
+    
+    UIRefreshControl *refresh = [[UIRefreshControl alloc] init];
+    
+    refresh.attributedTitle = [[NSAttributedString alloc] initWithString:@"Pull to Refresh"];
+    
+    
+    
+    [refresh addTarget:self action:@selector(reload)
+     
+      forControlEvents:UIControlEventValueChanged];
+    
+    
+    
+    self.refreshControl = refresh;
+    
+    
+    [self reload];
 
 }
 
@@ -90,6 +107,8 @@
         
         [self.tableView reloadData];
         
+        [self performSelector:@selector(stopRefresh) withObject:nil afterDelay:2.5];
+        
         NSLog(@"movies: %@", self.movies);
         
     }];
@@ -105,6 +124,14 @@
     
     MovieDetailViewController *movieDetailViewController = (MovieDetailViewController *)segue.destinationViewController;
     [movieDetailViewController setMovieDetails:movie];
+}
+
+- (void)stopRefresh
+
+{
+    
+    [self.refreshControl endRefreshing];
+    
 }
 
 @end
