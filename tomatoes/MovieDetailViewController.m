@@ -26,8 +26,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.title = [NSString stringWithFormat:@"%@", movieDetails.title];
 
-    
     [self.synopsisDetailLabel setText:movieDetails.synopsis];
     [self.castDetailLabel   setText:movieDetails.cast];
     [self.movieDetailImage setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", movieDetails.posters]]];

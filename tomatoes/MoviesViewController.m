@@ -14,13 +14,16 @@
 
 @interface MoviesViewController ()
 
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
+
+@property (nonatomic, assign) BOOL hasError;
 @property (nonatomic, strong) NSMutableArray *movies;
 
 - (void)reload;
 
 @end
-
 @implementation MoviesViewController
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -50,15 +53,13 @@
     refresh.attributedTitle = [[NSAttributedString alloc] initWithString:@"Pull to Refresh"];
     
     
-    
     [refresh addTarget:self action:@selector(reload)
      
       forControlEvents:UIControlEventValueChanged];
     
-    
-    
     self.refreshControl = refresh;
     
+    self.hasError = NO;
     
     [self reload];
 
@@ -71,47 +72,66 @@
 
 #pragma mark - Table view methods
 
+- (NSInteger)numberOfSections {
+    return 1;
+}
+
 - (int)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.movies.count;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    MovieCell *cell = (MovieCell *)[tableView
-     dequeueReusableCellWithIdentifier:@"MovieCell"];
-    
-    NSDictionary *movies = self.movies[indexPath.row];
-    Movie *movie = [[Movie alloc] initWithDictionary:movies];
-    
-    
-    cell.movieTitleLabel.text = movie.title;
-    cell.synopsisLabel.text = movie.synopsis;
-    cell.castLabel.text = movie.cast;
-    [cell.posterImage setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", movie.posters]]];
-    
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    if (self.hasError) {
+        return @"Network Error";
+    }
+    return @"";
+}
 
-    return cell;
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+        MovieCell *cell = (MovieCell *)[tableView dequeueReusableCellWithIdentifier:@"MovieCell"];
+        
+        NSDictionary *movies = self.movies[indexPath.row];
+        Movie *movie = [[Movie alloc] initWithDictionary:movies];
+    
+        cell.movieTitleLabel.text = movie.title;
+        cell.synopsisLabel.text = movie.synopsis;
+        cell.castLabel.text = movie.cast;
+        [cell.posterImage setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", movie.posters]]];
+        
+        return cell;
+
 }
 
 #pragma mark - Private methods
 
 - (void)reload {
-    // The code below a submits a request to the URL and the URL returns JSON is returned in the form of "data"
+    
+    [self.spinner startAnimating];
+    self.hasError = NO;
+    
     NSString *url = @"http://api.rottentomatoes.com/api/public/v1.0/lists/dvds/top_rentals.json?apikey=g9au4hv6khv6wzvzgt55gpqs";
     
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
         
-        NSDictionary *object = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+        if (connectionError) {
+            self.hasError = YES;
+            self.movies = [[NSMutableArray alloc] init];
+        } else {
+            self.hasError = NO;
+            NSDictionary *object = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+            
+            self.movies = [object objectForKey:@"movies"];
+    
+            NSLog(@"movies: %@", self.movies);
+        }
 
-        self.movies = [object objectForKey:@"movies"];
-        
-        [self.tableView reloadData];
-        
+        [self.spinner stopAnimating];
         [self performSelector:@selector(stopRefresh) withObject:nil afterDelay:2.5];
-        
-        NSLog(@"movies: %@", self.movies);
-        
+        [self.tableView reloadData];
     }];
+    
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -126,12 +146,9 @@
     [movieDetailViewController setMovieDetails:movie];
 }
 
-- (void)stopRefresh
+- (void)stopRefresh {
 
-{
-    
     [self.refreshControl endRefreshing];
-    
 }
 
 @end

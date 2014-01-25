@@ -12,6 +12,7 @@
 
 - (id)initWithDictionary:(NSDictionary *)dictionary {
     self = [super init];
+
     if (self) {
         self.title = dictionary[@"title"];
         self.synopsis = dictionary[@"synopsis"];
